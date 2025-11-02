@@ -38,7 +38,7 @@ export default function Payment(props) {
       setChangeAmount("");
       setIsInputDisabled(false);
     }
-  }, [showMethod]);
+  }, [showMethod, checkPaymentMethod]);
 
   useEffect(() => {
     if (isInputDisabled && paidMoney) {
@@ -47,7 +47,7 @@ export default function Payment(props) {
       setChangeAmount(updatedChange);
       props.isChange(updatedChange);
     }
-  }, [itemsPrice, cartItems]);
+  }, [itemsPrice, isInputDisabled, cartItems, props, vatRate, paidMoney]);
 
   useEffect(() => {
     if (showMethod === "Cash" && isInputDisabled && paidMoney) {
@@ -71,7 +71,15 @@ export default function Payment(props) {
         setIsPreviewEnabled(true);
       }
     }
-  }, [cartItems, itemsPrice]);
+  }, [
+    cartItems,
+    itemsPrice,
+    isChange,
+    isInputDisabled,
+    paidMoney,
+    showMethod,
+    totalPrice,
+  ]);
 
   const handleToggleMethod = () => {
     setShowMethod((prev) => (prev === "Mada" ? "Cash" : "Mada"));

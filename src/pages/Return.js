@@ -3,7 +3,7 @@ import { toast } from "sonner";
 
 const Return = () => {
   const [searchInvNumb, setSearchInvNumb] = useState("");
-  const [invoices, setInvoices] = useState([]);
+  const [, setInvoices] = useState([]);
   const [invoice, setInvoice] = useState(null);
 
   const handleSearch = () => {

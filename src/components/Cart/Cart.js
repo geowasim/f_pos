@@ -31,22 +31,21 @@ const Basket = ({ cartItems, resetCartItems, onAdd, onRemove }) => {
   const totalPrice = Number((itemsPrice + taxPrice).toFixed(2));
 
   const totalItems = cartItems.reduce((acc, product) => acc + product.qty, 0);
+  const componentRef = useRef();
+  const handleReactToPrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
 
   useEffect(() => {
     if (currentInvoice) {
       handleReactToPrint();
       setCurrentInvoice(null);
     }
-  }, [currentInvoice]);
+  }, [currentInvoice, handleReactToPrint]);
 
   const checkPaymentMethod = (method) => setMethod(method);
   const moneyFromClient = (recived) => setPaidMoney(recived);
   const isChange = (change) => setChange(Number(change).toFixed(2));
-
-  const componentRef = useRef();
-  const handleReactToPrint = useReactToPrint({
-    content: () => componentRef.current,
-  });
 
   const createInvoice = () => {
     const existingInvoices = JSON.parse(localStorage.getItem("invoices"));

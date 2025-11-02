@@ -24,7 +24,7 @@ const AdminSettings = () => {
 
     const sessionAuth = sessionStorage.getItem("adminAuth") === "true";
     if (sessionAuth) setIsAuth(true);
-  }, []);
+  }, [navigate]);
 
   const handleAuth = () => {
     if (adminCode === "admin") {
