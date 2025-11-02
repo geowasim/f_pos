@@ -1,0 +1,148 @@
+.basketContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3vh;
+  height: 96vh;
+  position: fixed;
+  top: 0;
+  right: 2vw;
+  width: 40vw;
+}
+.basket {
+  color: #fff;
+  text-align: center;
+  flex: 1;
+  margin-top: 30px;
+  left: 59vw;
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 80%;
+}
+
+.basket::before {
+  content: "";
+  height: 100%;
+  width: 1px;
+  position: absolute;
+  left: -10px;
+  top: 26px;
+  background-color: #d9d9d9;
+}
+.basket::after {
+  content: "";
+  height: 100%;
+  width: 1px;
+  position: absolute;
+  right: 0;
+  top: 26px;
+  background-color: #d9d9d9;
+}
+
+.cancelOrder {
+  background: #333333;
+  color: #ffbe59;
+  position: absolute;
+  left: 0px;
+  padding: 0 6px;
+  font-family: "El Messiri", sans-serif;
+  border-radius: 5px;
+}
+/* hr {
+  width: 100%;
+} */
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px dotted #c2bfbf;
+  height: 33px;
+  color: #4e4d4d;
+  font-family: "El Messiri", sans-serif;
+}
+.basketName {
+  margin-bottom: 10px;
+  color: #4e4d4d;
+  font-family: "El Messiri", sans-serif;
+}
+.basketTitle {
+  color: #4e4d4d;
+  flex: 1;
+}
+.basketIND {
+  color: #4e4d4d;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.basketQT {
+  flex: 1;
+}
+
+.add,
+.remove {
+  width: 30px;
+  height: 20px;
+  margin-left: 15px;
+  border-radius: 5px;
+  font-size: 25px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 5px;
+  border: 1px solid #c2bfbf;
+  background-color: #fdcc8b;
+}
+
+/* .totalPrice {
+  margin-top: 20px;
+} */
+
+.paymentArea {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+/* .pay {
+  position: absolute;
+  bottom: 140px;
+  right: 1.5vw;
+  font-size: 1.5rem;
+} */
+
+/* .copyRights {
+  color: #3d3d3d;
+} */
+
+/* .choice {
+  display: flex;
+} */
+/*
+.madaOptions {
+  display: flex;
+  position: absolute;
+  bottom: 150px;
+  width: 60%;
+  color: #3d3d3d;
+  justify-content: center;
+  right: 19%;
+}
+.madaOptions button {
+  margin: 0 5px;
+  height: 40px;
+  font-size: 25px;
+}
+*/

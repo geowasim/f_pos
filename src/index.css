@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #ae9da54f;
+}
+@import url("https://fonts.googleapis.com/css2?family=Aboreto&family=El+Messiri&family=Kufam&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  font-family: "El Messiri", sans-serif;
+}
+
+.scroll-left {
+  direction: rtl;
+  overflow-y: auto;
+  scrollbar-color: #fdc071 transparent;
+  scrollbar-width: thin;
+}
+.scroll-left > * {
+  direction: ltr;
+}
+
+.scroll-right {
+  overflow-y: auto;
+  scrollbar-color: #fdc071 transparent;
+  scrollbar-width: thin;
+  box-sizing: border-box;
+}
+
+.no-spinner::-webkit-inner-spin-button,
+.no-spinner::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.no-spinner {
+  -moz-appearance: textfield;
+}
