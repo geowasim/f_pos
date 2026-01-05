@@ -117,16 +117,14 @@ export default function Payment(props) {
             <FaMoneyBill className="text-xl text-green-600" />
           )}
           <h2 className="text-sm font-semibold text-gray-700">
-            {showMethod === "Mada"
-              ? "طريقة الدفع الافتراضية بطاقة"
-              : "الدفع نقداً"}
+            {showMethod === "Mada" ? "Default: Pay by Card" : "Pay Cash"}
           </h2>
         </div>
         <button
           onClick={handleToggleMethod}
           className="border border-[#ffda22] text-xs md:text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded transition md"
         >
-          {showMethod === "Mada" ? "تبديل إلى كاش" : "تبديل إلى بطاقة"}
+          {showMethod === "Mada" ? "Change to Cash" : "Change to Card"}
         </button>
       </div>
 
@@ -134,16 +132,15 @@ export default function Payment(props) {
         {showMethod === "Mada" ? (
           <div className="flex items-center justify-between">
             <p className="text-sm text-gray-600">
-              المبلغ المطلوب: <span className="font-bold">{totalPrice}</span>{" "}
-              ر.س
+              Requerd Amount: <span className="font-bold">{totalPrice}</span>{" "}
+              SAR
             </p>
           </div>
         ) : (
           <div className="flex items-center gap-2">
             {isInputDisabled ? (
               <p className="border p-[0.4rem] rounded text-right w-full text-sm bg-gray-50 text-gray-800">
-                المتبقي للعميل:{" "}
-                <span className="font-bold">{changeAmount}</span> ر.س
+                Remaining: <span className="font-bold">{changeAmount}</span> SAR
               </p>
             ) : (
               <input
@@ -151,7 +148,7 @@ export default function Payment(props) {
                 min="0"
                 step="0.01"
                 inputMode="decimal"
-                placeholder="أدخل المبلغ المدفوع"
+                placeholder="Enter the amount paid"
                 value={cashInput}
                 onChange={handleCashInput}
                 onKeyDown={(e) => {
@@ -168,7 +165,7 @@ export default function Payment(props) {
               className="itemButton px-3 py-[0.4rem] whitespace-nowrap text-sm"
               disabled={isInputDisabled}
             >
-              احسب المتبقي
+              Get remainder
             </button>
           </div>
         )}
@@ -182,7 +179,7 @@ export default function Payment(props) {
             !isPreviewEnabled ? "opacity-50 cursor-not-allowed" : ""
           }`}
         >
-          معاينة الفاتورة & طباعة
+          Preview & Print the Invoice
         </button>
         {showMethod === "Cash" && isInputDisabled && !isPreviewEnabled && (
           <button

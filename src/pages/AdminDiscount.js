@@ -38,7 +38,7 @@ const AdminSettings = () => {
   const saveDiscount = () => {
     const rate = Number(discountRateInput);
     if (rate < 0 || rate > 100) {
-      toast.warning("نسبة الخصم يجب أن تكون بين 0 و 100");
+      toast.warning("Discount ratio should be between 0 and 100");
       return;
     }
     localStorage.setItem("discountRate", rate);
@@ -50,13 +50,13 @@ const AdminSettings = () => {
   const saveVat = () => {
     const vat = Number(vatValueInput);
     if (vat < 0 || vat > 100) {
-      toast.warning("نسبة الضريبة يجب أن تكون بين 0 و 100");
+      toast.warning("VAT ratio should be between 0 and 100");
       return;
     }
     localStorage.setItem("vatValue", vat);
     setCurrentVat(vat);
     setVatValueInput("");
-    toast.success(`% ${vat} تم حفظ نسبة الضريبة`);
+    toast.success(`% ${vat} Successfuly saved the value`);
   };
 
   return (
@@ -80,38 +80,41 @@ const AdminSettings = () => {
                 handleAuth();
               }
             }}
-            placeholder="كلمة المرور"
+            placeholder="Password"
           />
           <button
             onClick={handleAuth}
             className="bg-blue-600 text-white p-2 w-full"
           >
-            دخول
+            Enter
           </button>
         </div>
       ) : (
         <div>
           <h2 className="text-xl text-center font-bold mb-6">
-            إعدادات الضريبة والخصومات
+            VAT & Discount settings
           </h2>
           <p className="font text-center mb-6">Vat and Discount Settings</p>
           <table className="w-full text-right border-separate space-y-4">
             <thead className="text-center">
               <tr className="text-gray-600 text-sm">
-                <th>المهمة</th>
-                <th>القيمة الحالية</th>
-                <th>الإدخال الجديد</th>
-                <th>حفظ</th>
+                <th>Task</th>
+                <th>Current value</th>
+                <th>New Value</th>
+                <th>Save</th>
               </tr>
             </thead>
             <tbody className="text-center">
               <tr>
-                <td className="font-semibold text-gray-700">نسبة الخصم (%)</td>
+                <td className="font-semibold text-gray-700">
+                  Discount ratio (%)
+                </td>
                 <td>{currentRate ? `${currentRate}٪` : "—"}</td>
                 <td>
                   <input
                     className="no-spinner border p-2 w-full"
                     type="number"
+                    placeholder="Enter the value"
                     value={discountRateInput}
                     onKeyDown={(e) => {
                       if (e.key === "Enter") saveDiscount();
@@ -124,14 +127,12 @@ const AdminSettings = () => {
                     onClick={saveDiscount}
                     className="bg-gray-700 text-white px-4 py-2"
                   >
-                    حفظ
+                    Add
                   </button>
                 </td>
               </tr>
               <tr>
-                <td className="font-semibold text-gray-700">
-                  نسبة الضريبة (VAT %)
-                </td>
+                <td className="font-semibold text-gray-700">VAT Rate (%)</td>
                 <td>{currentVat ? `${currentVat}٪` : "—"}</td>
                 <td>
                   <input
@@ -139,7 +140,7 @@ const AdminSettings = () => {
                     value={vatValueInput}
                     onChange={(e) => setVatValueInput(e.target.value)}
                     type="number"
-                    placeholder="أدخل النسبة"
+                    placeholder="Enter the value "
                     onKeyDown={(e) => {
                       if (e.key === "Enter") saveVat();
                     }}

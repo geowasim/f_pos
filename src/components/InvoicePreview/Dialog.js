@@ -34,14 +34,18 @@ function Dialog(props) {
           discountRate={discountRate}
         />
         <h3 className="warning text-xl mb-2 ">
-          طريقة الدفع
-          {method === "Mada" ? <span>- بطاقة</span> : <span> كاش</span>}
+          Payment Method :
+          {method === "Mada" ? (
+            <span className="mr-1"> Cash</span>
+          ) : (
+            <span> Card</span>
+          )}
         </h3>
-        <p className="mb-4 text-2xl">هل تم إستلام المبلغ؟</p>
+        <p className="mb-4 text-2xl">Has the payment been received?</p>
 
         <div className="flex items-center">
           <button onClick={() => setHideQuestionShowPay(false)} className="no">
-            لا - الرجوع للقائمة السابقة{" "}
+            No - Back main page{" "}
           </button>
           <button
             onClick={() => {
@@ -52,7 +56,7 @@ function Dialog(props) {
             }}
             className="yes"
           >
-            نعم - اطبع الفاتورة
+            Yes - Print the invoice
           </button>
         </div>
       </div>

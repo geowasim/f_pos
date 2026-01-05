@@ -87,7 +87,7 @@ const Basket = ({ cartItems, resetCartItems, onAdd, onRemove }) => {
     <>
       <div className="basketContainer">
         <div className="basket">
-          <h2 className="basketName">السلة</h2>
+          <h2 className="basketName">The Cart</h2>
 
           {cartItems.length !== 0 && (
             <button
@@ -96,18 +96,18 @@ const Basket = ({ cartItems, resetCartItems, onAdd, onRemove }) => {
                 resetCartItems();
               }}
             >
-              إلغاء الطلب{" "}
+              Cancel order{" "}
             </button>
           )}
 
           <div className="Cart flex flex-col bg-white w-full h-[350px] shadow-md rounded-lg text-sm md:text-base">
             <div className="Products-items scroll-right flex-1 overflow-y-auto border-b p-2">
               {cartItems.length === 0 ? (
-                <p className="text-center text-gray-500">السلة فارغة</p>
+                <p className="text-center text-gray-500">Empty Basket</p>
               ) : (
                 cartItems.map((item) => (
                   <div key={item.id} className="row">
-                    <div className="basketTitle">{item.description}</div>
+                    <div className="basketTitle">{item.title}</div>
                     <div className="basketIND">
                       <button onClick={() => onAdd(item)} className="add">
                         +
@@ -128,27 +128,27 @@ const Basket = ({ cartItems, resetCartItems, onAdd, onRemove }) => {
             {cartItems.length !== 0 && (
               <div className="Summery text-sm md:text-base bg-[#fdefde80] p-3 space-y-2 text-right text-gray-700">
                 <div className="flex justify-between">
-                  <span>السعر الأساسي:</span>
+                  <span>Price with vat({vatRate * 100}%):</span>
                   <span>
-                    {(totalBasicPrice * (1 + vatRate)).toFixed(2)} ر.س
+                    {(totalBasicPrice * (1 + vatRate)).toFixed(2)} SAR
                   </span>
                 </div>
 
                 {discountRate > 0 && (
                   <div className="flex justify-between">
-                    <span>الخصم ({discountRate}٪):</span>
+                    <span>Discount ({discountRate}%):</span>
                     <span>
-                      -{((totalBasicPrice * discountRate) / 100).toFixed(2)} ر.س
+                      -{((totalBasicPrice * discountRate) / 100).toFixed(2)} SAR
                     </span>
                   </div>
                 )}
 
                 <div className="flex justify-between font-bold text-[#cb7d00]">
-                  <span>السعر النهائي:</span>
-                  <span>{totalPrice} ر.س</span>
+                  <span>Total:</span>
+                  <span>{totalPrice} SAR</span>
                 </div>
                 <div className="flex justify-between text-gray-500 text-sm">
-                  <span>عدد القطع:</span>
+                  <span>Items</span>
                   <span>{totalItems}</span>
                 </div>
               </div>
