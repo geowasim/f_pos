@@ -1,18 +1,20 @@
 # 🧾 Local Sales & Invoice System (POS)
 
-A lightweight, web-based Point of Sale (POS) system developed specifically for a private client. It was actually used in a live perfume exhibition, with full support for Saudi Electronic Invoicing requirements (ZATCA - Phase One). The project went through several stages of development and improvement based on real-world usage, which helped improve its structure and organization.
+A lightweight, web-based Point of Sale (POS) system developed specifically for a private client. It was actually used in a live perfume exhibition, with full support for Saudi Electronic Invoicing requirements (ZATCA - Phase One).
+
+The project went through several stages of development and improvement based on real-world feedback, which helped improve its structure and organization.
 
 ---
 
 ## ⚙️ Core Features
 
-- Browse products with category filtering.
-- Dynamic shopping cart with quantity adjustments.
-- Payment options: cash or card.
-- Invoice preview and printing with a ZATCA-compatible QR code.
-- Invoice history with numbering and pagination.
-- Ability to process a full invoice return (refund).
-- Global adjustment of discounts and taxes.
+- **Catalog**: Browse products with category filtering.
+- **Cart** Dynamic shopping cart with quantity adjustments and an **Easy Cancel** orders.
+- **Payment options**: cash or card.
+- **Invoicing**: Invoice preview and printing with a ZATCA-compatible QR code.
+- **Invoing**: Invoice history with numbering and pagination.
+- **Returns** Ability to process a full invoice return (refund), with detection for refuneded invoices.
+- **Settings**:Global adjustment of discounts and taxes.
 
 ---
 
@@ -30,18 +32,30 @@ The focus was on a robust structure and valuable development experiences:
 ## 🛠️ Technologies Used
 
 - **Frontend:** React.js + JavaScript (ES6+)
-- **Styling:** Tailwind CSS
+- **Styling:** Tailwind CSS && CSS
 - **Database (Original Version):** Firebase (Firestore + Auth)
 - **Database (Demo Version):** LocalStorage
 - **QR Code Generation:** `react-qr-code` library
 
 ---
 
-## ⚠️ Known Limitations (Demo Version)
+## ⚠️ Demo Access & Limitations (Demo Version)
 
-These limitations apply to the public demo version and may not be present in the client's live version:
+**Live Demo:** [Link to your project]  
+**Credentials:** Use `demo@pos.com` / `admin123` to log in.
 
-- No complete session saving (only a test login available).
-- No inventory or warehouse tracking.
-- Statistics are limited (total sales, profit, and returned invoices only).
-- Local display only (no cloud synchronization in this version).
+_Note: This demo version uses LocalStorage; clearing your browser cache will reset the data._
+
+---
+
+## 🚀 Installation & Setup
+
+```bash
+git clone or install it
+npm install
+npm run
+```
+
+---
+
+**Developed by Wasim Al Mostafa** 🚀

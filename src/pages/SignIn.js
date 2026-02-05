@@ -9,23 +9,17 @@ const Signin = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const copyValue = (value) => {
-    navigator.clipboard
-      .writeText(value)
-      .then(() => {
-        const message =
-          value === "demo@pos.com"
-            ? "Email copied to clipboard!"
-            : value === "admin123"
-            ? "Password copied to clipboard!"
-            : "Copied to clipboard!";
-        toast.warning(message);
-      })
-      .catch((err) => {
-        console.error("Failed to copy: ", err);
-      });
+  const fillDemoData = () => {
+    setEmail("demo@pos.com");
+    setPassword("admin123");
+    toast.success("Demo credentials filled!");
   };
 
+  const copyValue = (value, type) => {
+    navigator.clipboard.writeText(value).then(() => {
+      toast.info(`${type} copied to clipboard!`);
+    });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     const isAdminPassword = password === "admin123";
@@ -54,54 +48,73 @@ const Signin = () => {
           <LogoSVG className="bg-transparent shadow-none w-[200px] h-[100px] mb-8" />
         </div>
         <div>
-          <h1 className="text-2xl font-bold py-2">Sign in to your account</h1>
+          <h1 className="text-2xl font-bold py-2">Sign in to Demo Version</h1>
         </div>
-        <form onSubmit={handleSubmit}>
-          <div className="flex flex-col py-2">
-            <label className="py-2 font-medium">Email Address</label>
+        <div className="mb-8 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+          <div className="flex justify-between items-center mb-2">
+            <span className="text-xs font-bold uppercase text-amber-700 tracking-wider">
+              Demo Access
+            </span>
+            <button
+              onClick={fillDemoData}
+              className="text-xs bg-amber-600 text-white px-2 py-1 rounded hover:bg-amber-700 transition"
+            >
+              Autofill Login
+            </button>
+          </div>
+          <div className="text-sm space-y-1">
+            <p
+              className="flex justify-between cursor-pointer group"
+              onClick={() => copyValue("demo@pos.com", "Email")}
+            >
+              <span className="text-gray-600 italic">Email:</span>
+              <span className="font-mono font-semibold group-hover:text-amber-700">
+                demo@pos.com 📋
+              </span>
+            </p>
+            <p
+              className="flex justify-between cursor-pointer group"
+              onClick={() => copyValue("admin123", "Password")}
+            >
+              <span className="text-gray-600 italic">Password:</span>
+              <span className="font-mono font-semibold group-hover:text-amber-700">
+                admin123 📋
+              </span>
+            </p>
+          </div>
+        </div>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Email Address
+            </label>
             <input
               onChange={(e) => setEmail(e.target.value)}
-              className="border p-3"
+              className="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-amber-500 outline-none"
               type="email"
               value={email}
-              placeholder="Email"
             />
           </div>
-          <div className="flex flex-col py-2">
-            <label className="py-2 font-medium">Password</label>
-            <input
-              onChange={(e) => setPassword(e.target.value)}
-              className="border p-3"
-              type="password"
-              value={password}
-              placeholder="Password"
-            />
-          </div>
+
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Password
+          </label>
+          <input
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-amber-500 outline-none"
+            type="password"
+            value={password}
+          />
+
           <button
-            className="border border-[#373737] bg-[#706f6f] hover:bg-[#5b5b59] w-full p-4 my-2 text-white"
+            className="w-full bg-[#706f6f] hover:bg-[#5b5b59] text-white font-bold py-4 rounded-lg shadow-md transition-all active:scale-95"
             type="submit"
           >
-            Login
+            Login to System
           </button>
         </form>
-        <div>
-          <p className="mt-8"> Demo credentials:</p>
-          <br />
-          <p
-            onClick={() => copyValue("demo@pos.com")}
-            className="cursor-pointer"
-          >
-            <strong className="mr-4">Email: (Click to copy)</strong>
-            demo@pos.com
-          </p>
-          <br />
-          <p onClick={() => copyValue("admin123")} className="cursor-pointer">
-            <strong className="mr-4">Password: (Click to copy)</strong>
-            admin123
-          </p>
-          {/* <strong>Password:</strong> admin123 */}
-        </div>
-        {error && <p style={{ color: "red" }}>Wrong username or password</p>}
+
+        {error && toast.success("Wrong username or password")}
       </div>
     </div>
   );

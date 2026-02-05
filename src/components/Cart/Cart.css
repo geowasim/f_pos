@@ -75,6 +75,8 @@
 .basketTitle {
   color: #4e4d4d;
   flex: 1;
+  text-align: start;
+  margin-left: 0.5rem;
 }
 .basketIND {
   color: #4e4d4d;

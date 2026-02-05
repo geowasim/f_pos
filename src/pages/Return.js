@@ -159,7 +159,7 @@ const Return = () => {
                 const displayLineTotal = unitPrice * qty;
                 return (
                   <tr key={idx}>
-                    <td>{item.description}</td>
+                    <td>{`${item.category} - ${item.title}`}</td>
                     <td>{qty}</td>
                     <td>{floatNum(unitPrice)} SAR</td>
                     <td>{floatNum(displayLineTotal)} SAR</td>

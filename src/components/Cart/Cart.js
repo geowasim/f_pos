@@ -107,7 +107,9 @@ const Basket = ({ cartItems, resetCartItems, onAdd, onRemove }) => {
               ) : (
                 cartItems.map((item) => (
                   <div key={item.id} className="row">
-                    <div className="basketTitle">{item.title}</div>
+                    <div className="basketTitle">
+                      {item.category[0]} - {item.title}
+                    </div>
                     <div className="basketIND">
                       <button onClick={() => onAdd(item)} className="add">
                         +

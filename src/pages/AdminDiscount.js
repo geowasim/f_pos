@@ -151,7 +151,7 @@ const AdminSettings = () => {
                     onClick={saveVat}
                     className="bg-yellow-600 text-white px-4 py-2"
                   >
-                    حفظ
+                    add
                   </button>
                 </td>
               </tr>
