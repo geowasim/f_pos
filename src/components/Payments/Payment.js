@@ -92,7 +92,14 @@ export default function Payment(props) {
   const handleCalculateChange = () => {
     const paid = Number(cashInput);
     if (paid < totalPrice) {
-      alert("تأكد من المبلغ المستلم");
+      toast.warning(
+        <>
+          تأكد من المبلغ المستلم
+          <br />
+          check the received money
+        </>
+      );
+
       return;
     }
     const change = (paid - totalPrice).toFixed(2);

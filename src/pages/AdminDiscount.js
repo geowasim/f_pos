@@ -31,7 +31,13 @@ const AdminSettings = () => {
       setIsAuth(true);
       sessionStorage.setItem("adminAuth", "true");
     } else {
-      alert("رمز خاطئ / wrong password");
+      toast.warning(
+        <>
+          كلمة المرور ليست صحيحة استخدم(admin)
+          <br />
+          Wrong password - password: admin
+        </>
+      );
     }
   };
 
