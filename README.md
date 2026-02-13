@@ -41,7 +41,7 @@ The focus was on a robust structure and valuable development experiences:
 
 ## ⚠️ Demo Access & Limitations (Demo Version)
 
-**Live Demo:** [Link to your project]  
+**Live Demo:** [myposify.netlify.net](https://myposify.netlify.app/)]  
 **Credentials:** Use `demo@pos.com` / `admin123` to log in.
 
 _Note: This demo version uses LocalStorage; clearing your browser cache will reset the data._
