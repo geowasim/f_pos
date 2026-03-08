@@ -71,7 +71,7 @@ _Note: This demo version uses LocalStorage; clearing your browser cache will res
 ```bash
 git clone or install it
 npm install
-npm run
+npm start
 ```
 
 ---
