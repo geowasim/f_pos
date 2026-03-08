@@ -36,9 +36,9 @@ function Dialog(props) {
         <h3 className="warning text-xl mb-2 ">
           Payment Method :
           {method === "Mada" ? (
-            <span className="mr-1"> Cash</span>
+            <span className="mr-1"> Card</span>
           ) : (
-            <span> Card</span>
+            <span> Cash</span>
           )}
         </h3>
         <p className="mb-4 text-2xl">Has the payment been received?</p>
